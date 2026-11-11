@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="mr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>यश – डिजिटल मेनू</title>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#121212;--card:#1c1c1c;--gold:#f7c01b;--text:#fff;--mute:#c9c9c9;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Mukta','Noto Sans Devanagari','Hind',sans-serif;line-height:1.35}
+header{text-align:center;padding:28px 16px 12px;background:radial-gradient(circle at 50% 0,#3a2c00,var(--bg) 70%)}
+h1{margin:0;font-size:68px;font-weight:800;color:var(--gold);letter-spacing:2px;line-height:1}
+header p{margin:6px 0 0;font-size:18px;font-weight:700}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding:10px 12px;border-bottom:1px solid #333}
+nav a{flex:none;color:var(--gold);border:1px solid var(--gold);border-radius:20px;padding:4px 14px;text-decoration:none;font-weight:700;font-size:15px}
+main{max-width:640px;margin:0 auto;padding:12px}
+section{background:var(--card);border:2px solid var(--gold);border-radius:18px;margin:16px 0;overflow:hidden}
+h2{margin:0;padding:8px 16px;background:var(--gold);color:#111;font-size:22px;font-weight:800}
+.row{display:flex;align-items:center;gap:8px;padding:9px 16px;border-bottom:1px solid #2c2c2c}
+.row:last-child{border:0}
+.row span:first-child{flex:1;font-weight:500;font-size:17px}
+.p{min-width:52px;text-align:right;font-weight:700;color:var(--gold);font-size:17px}
+.h{display:flex;justify-content:flex-end;gap:8px;padding:6px 16px 0;color:var(--mute);font-size:14px;font-weight:700}
+.h span{min-width:52px;text-align:right}
+footer{text-align:center;padding:20px 16px 36px;color:var(--gold);font-weight:700}
+footer b{display:block;font-size:22px;margin-bottom:6px}
+</style></head><body>
+<header><h1>यश</h1><p>नॉनव्हेज चायनीज &amp; सोयाबीन बिर्याणी</p></header>
+<nav id="nav"></nav><main id="m"></main>
+<footer><b>एकदा चाखा, चवीचे चाहते व्हा !</b>स्वाद, गुणवत्ता आणि समाधान… हेच आमचे वचन !</footer>
+<script>
+const S=[
+["अंडा मेन्यू",["सिंगल","डबल"],[["बॉईल अंडे",15,25],["चटपटा फ्राय अंडा",35,70],["बटर बँजो ऑमलेट",25,50],["बटर हाफ फ्राय",25,50],["बटर तडका हाफ फ्राय",30,60],["बटर अंडा भुर्जी",35,60],["बटर ऑमलेट",25,50]]],
+["नॉनव्हेज चायनीज",["सिंगल","डबल"],[["अंडा फ्राईड राईस",80,120],["अंडा शेजवान राईस",80,120],["अंडा ट्रीपल राईस / नुडल्स",100,160],["अंडा हक्का नुडल्स",80,120],["अंडा शेजवान नुडल्स",80,120],["चिकन फ्राईड राईस",80,120],["चिकन शेजवान राईस",80,120],["चिकन ट्रीपल राईस / नुडल्स",100,160],["चिकन हक्का नुडल्स",80,120],["चिकन शेजवान नुडल्स",80,120],["चिकन चिली",100,160],["चिकन सूप",80,120]]],
+["अंडा स्पेशल",["रेट"],[["बॉईल खिमा",80],["बॉईल भुर्जी",80],["बॉईल डोसा",100],["बॉईल ऑमलेट",60],["बॉक्स ऑमलेट",90],["चीज बॉक्स ऑमलेट",90],["अंडा पुलाव",100]]],
+["चिकन स्पेशल",["रेट"],[["चिकन दम बिर्याणी",120],["चिकन चायनीज भेल",100],["चिकन पुलाव",80]]],
+["चिकन मोमोज",[],[["स्टीम मोमोज",100],["फ्राय मोमोज",120],["चिली मोमोज",150],["कुरकुरे मोमोज",140]]],
+["स्पेशल फ्राय",[],[["चिकन रोस्टेड",100],["अंडा रोस्टेड",40],["फ्रिश फ्राय","140 / Kg"]]]];
+let h="",n="";
+S.forEach((s,i)=>{n+=`<a href="#s${i}">${s[0]}</a>`;
+h+=`<section id="s${i}"><h2>${s[0]}</h2>`+(s[1].length?`<div class="h">${s[1].map(x=>`<span>${x}</span>`).join("")}</div>`:"");
+s[2].forEach(r=>{h+=`<div class="row"><span>${r[0]}</span>${r.slice(1).map(p=>`<span class="p">${p}</span>`).join("")}</div>`});h+="</section>"});
+document.getElementById("nav").innerHTML=n;document.getElementById("m").innerHTML=h;
+</script></body></html>
